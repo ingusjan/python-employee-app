@@ -1,4 +1,15 @@
 import socket
+from threading import Thread
+
+
+def on_new_client(client_socket, addr):
+    while True:
+        data = client_socket.recv(1024).decode('utf-8')
+        if not data:
+            break
+        # do some checks and if msg == someWeirdSignal: break:
+        print(f"Data from {addr} >> {data}")
+    client_socket.close()
 
 
 def main():
@@ -8,20 +19,17 @@ def main():
     s = socket.socket()
     s.bind((host, port))  # bind the socket to the port and ip address
 
-    s.listen(1)  # wait for new connections
+    s.listen(5)  # wait for new connections
     print(f"Employee detail server is running, clients can connect on port {port}")
-    c, addr = s.accept()  # accepts the incoming connection
-    # this returns a new socket object and the IP address of the client
-    print(f"New connection from: {addr}")
 
     while True:
-        data = c.recv(1024).decode('utf-8')  # accepts data from the client
-        if not data:
-            break
-        print(f"Incoming data: {data}")
-        data = data.upper()
-        c.send(data.encode('utf-8'))
+        c, addr = s.accept()  # Establish connection with client.
+        # this returns a new socket object and the IP address of the client
+        print(f"New connection from: {addr}")
+        thread = Thread(target=on_new_client, args=(c, addr))  # create the thread
+        thread.start()  # start the thread
     c.close()
+    thread.join()
 
 
 if __name__ == '__main__':
