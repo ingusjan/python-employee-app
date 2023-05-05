@@ -1,0 +1,183 @@
+/* Vodafone brand colours */
+:root {
+    --vodafone-red: #e60000;
+    --vodafone-dark-grey: #4a4d4e;
+    --vodafone-light-grey: #d8d8d8;
+    --vodafone-white: #ffffff;
+  }
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: var(--vodafone-white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+/* Group utility class */
+.group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.group > * {
+  margin-right: 1rem;
+}
+
+.group > *:last-child {
+  margin-right: 0;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: var(--vodafone-dark-grey);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--vodafone-red);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+button,
+input[type="submit"],
+input[type="button"] {
+  display: inline-block;
+  background-color: var(--vodafone-red);
+  color: var(--vodafone-white);
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: #b30000;
+}
+
+button:disabled,
+input[type="submit"]:disabled,
+input[type="button"]:disabled {
+  background-color: var(--vodafone-light-grey);
+  color: var(--vodafone-dark-grey);
+  cursor: not-allowed;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  background-color: var(--vodafone-white);
+  border: 1px solid var(--vodafone-light-grey);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--vodafone-red);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+textarea::placeholder {
+  color: #999;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+  }
+  
+  th,
+  td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid var(--vodafone-light-grey);
+  }
+  
+  th {
+    background-color: var(--vodafone-dark-grey);
+    color: var(--vodafone-white);
+    font-weight: 600;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }

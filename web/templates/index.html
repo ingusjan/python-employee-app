@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>Employee Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/scripts.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Employee Tracker</h1>
+      <p>Use the below search bar to search employees.</p>
+
+      <form>
+        <div class="group">
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="Enter employee first name..."
+          />
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="Enter employee last name..."
+          />
+        </div>
+
+        <button>Search</button>
+      </form>
+
+      <div style="margin-top: 4rem">
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Age</th>
+              <th>Employed?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John</td>
+              <td>Doe</td>
+              <td>32</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Jane</td>
+              <td>Smith</td>
+              <td>28</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Mark</td>
+              <td>Johnson</td>
+              <td>45</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Susan</td>
+              <td>Brown</td>
+              <td>37</td>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
