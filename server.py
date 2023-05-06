@@ -1,5 +1,6 @@
 import sys
 import socket
+import signal
 from threading import Thread
 
 
@@ -24,8 +25,10 @@ class Server:
             self.socket.bind((self.host, self.port))  # bind the socket to the port and ip address
             self.socket.listen(5)  # wait for new connections
             listening = True
+        except OSError:
+            print(f"Unable to start the server. Port {self.port} is already in use.")
+            listening = False
         except:
-            # print(f"Unable to start the server. Port {self.port} is already in use.")
             print(f"Unable to successfully start the server")
             listening = False
         return listening
