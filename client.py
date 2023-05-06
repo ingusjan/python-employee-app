@@ -54,9 +54,9 @@ def main():
                 print("Invalid input! The answer can be 'Yes' or 'No'")
 
         employee_dict = {
-            'First Name': first_name,
-            'Last Name': surname,
-            'Age': age,
+            'first_name': first_name,
+            'last_name': surname,
+            'age': age,
             'Employed': employed
             }
 
