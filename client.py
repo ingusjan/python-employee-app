@@ -20,8 +20,6 @@ class Client:
         return connected
 
     def start(self):
-        i = 0
-
         while True:
             # work out how to keep looping
             connected = self.connect()
@@ -66,7 +64,6 @@ class Client:
 
         running = True
         while running:  # loop for as many times as the user wants
-            i += 1
 
             valid = False
             while not valid:  # keep letting the user input first names until they enter a valid one
@@ -114,7 +111,7 @@ class Client:
             }
 
             employee_json = json.dumps(employee_dict)
-            self.socket.send(employee_json.encode('utf-8'))
+            self.socket.send(employee_json.encode('utf-8'))  # encode the data before it is sent
             print("Employee information sent")
 
             go = input("Would you like to input anymore employee information, Yes or No? ")
