@@ -9,7 +9,7 @@ def main():
     s.bind((host, port))  # bind the socket to the port and ip address
 
     s.listen(1)  # wait for new connections
-    print(f"Server is running, machines can connect on port {port}")
+    print(f"Employee detail server is running, clients can connect on port {port}")
     c, addr = s.accept()  # accepts the incoming connection
     # this returns a new socket object and the IP address of the client
     print(f"New connection from: {addr}")
