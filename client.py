@@ -107,7 +107,7 @@ class Client:
                 'first_name': first_name,
                 'last_name': surname,
                 'age': age,
-                'Employed': employed
+                'employed': employed
             }
 
             employee_json = json.dumps(employee_dict)
