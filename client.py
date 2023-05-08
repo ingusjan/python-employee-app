@@ -44,20 +44,20 @@ def main():
         valid = False
         while not valid:
             employed = input("Is the employee currently employed, Yes or No? ")
-            if employed in ['Y', 'YES', 'Yes', 'yes']:
+            if employed in ['Y', 'YES', 'Yes', 'yes', 'y']:
                 employed = True
                 valid = True
-            elif employed in ['N', 'NO', 'no', 'No']:
+            elif employed in ['N', 'NO', 'no', 'No', 'n']:
                 employed = False
-                valid = False
+                valid = True
             else:
                 print("Invalid input! The answer can be 'Yes' or 'No'")
 
         employee_dict = {
-            'First Name': first_name,
-            'Last Name': surname,
-            'Age': age,
-            'Employed': employed
+            'first_name': first_name,
+            'last_name': surname,
+            'age': age,
+            'employed': employed
             }
 
         employee_json = json.dumps(employee_dict)
@@ -65,7 +65,7 @@ def main():
         print("Employee information sent")
 
         go = input("Would you like to input anymore employee information, Yes or No? ")
-        if go in ["N", "No", "NO", "no"]:
+        if go in ["N", "No", "NO", "no", 'n']:
             running = False
 
     s.close()  # close connection to the server
