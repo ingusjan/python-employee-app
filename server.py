@@ -1,6 +1,8 @@
+import os
+import csv
 import sys
+import json
 import socket
-import signal
 from threading import Thread
 
 
@@ -9,15 +11,31 @@ class Server:
         self.host = '0.0.0.0'  # allow any incoming connections
         self.port = 8888
         self.socket = socket.socket()
+        self.json_filename = "employee_data.csv"  # using csv file rather than json because the headers are pre-defined and constant
+        self.json_headers = ['first_name', 'last_name', 'age', 'employed']
+        # check if the file exists, if it doesn't add the headers
+        if not os.path.exists(self.json_filename):
+            f = open(self.json_filename, 'w')
+            writer = csv.writer(f)
+            writer.writerow(self.json_headers)
+            f.close()
 
-    @staticmethod  # this method is static because it does not use any of the server's attributes
-    def on_new_client(client_socket, addr):
+    def on_new_client(self, client_socket, addr):
         while True:
             data = client_socket.recv(1024).decode('utf-8')
             if not data:
                 break
-            # do some checks and if msg == someWeirdSignal: break:
-            print(f"Data from {addr} >> {data}")
+
+            print(f"Saving data from {addr}")
+            json_data = json.loads(data)
+            saved_data = [json_data['first_name'], json_data['last_name'], json_data['age'], json_data['employed']]
+
+            # append incoming data to file
+            with open(self.json_filename, 'a') as f:
+                writer = csv.writer(f)
+                writer.writerow(saved_data)
+
+            print(f"Saved data: {data}")
         client_socket.close()
 
     def listen(self):
