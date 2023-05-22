@@ -1,34 +1,44 @@
 <html>
   <head>
     <title>Employee Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Load the CSS from the static folder -->
     <link rel="stylesheet" href="/static/styles.css" />
+    <!-- Load the JS from the static folder -->
     <script src="/static/scripts.js"></script>
   </head>
   <body>
     <div class="container">
+      <a href="/">
+        <img
+          src="https://assets.vodafone.co.uk/cs/groups/public/documents/webcontent/img_vodafone__icon.png"
+          style="margin-bottom: 12px"
+          alt="Vodafone Logo"
+          width="60"
+          height="60"
+        />
+      </a>
+
       <h1>Employee Tracker</h1>
       <p>Use the below search bar to search employees.</p>
-
-      <form>
+      <form method="get">
         <div class="group">
           <input
             type="text"
-            id="search"
-            name="search"
-            placeholder="Enter employee first name..."
+            name="query"
+            placeholder="Search by employee name"
+            value="{{ request.args.get('query', '') }}"
+            required
           />
-          <input
-            type="text"
-            id="search"
-            name="search"
-            placeholder="Enter employee last name..."
-          />
+          <input type="submit" value="Search" />
+          <a href="/">
+            <button class="button-secondary" type="button">Clear</button>
+          </a>
         </div>
-
-        <button>Search</button>
       </form>
 
-      <div style="margin-top: 4rem">
+      <div style="margin-top: 1rem">
+        {% if data %}
         <table>
           <thead>
             <tr>
@@ -39,32 +49,21 @@
             </tr>
           </thead>
           <tbody>
+            <!-- Loop through the data and show each row -->
+            {% for row in data %}
             <tr>
-              <td>John</td>
-              <td>Doe</td>
-              <td>32</td>
-              <td>Yes</td>
+              <td>{{ row.first_name }}</td>
+              <td>{{ row.last_name }}</td>
+              <td>{{ row.age }}</td>
+              <td>{{ row.employed }}</td>
             </tr>
-            <tr>
-              <td>Jane</td>
-              <td>Smith</td>
-              <td>28</td>
-              <td>Yes</td>
-            </tr>
-            <tr>
-              <td>Mark</td>
-              <td>Johnson</td>
-              <td>45</td>
-              <td>No</td>
-            </tr>
-            <tr>
-              <td>Susan</td>
-              <td>Brown</td>
-              <td>37</td>
-              <td>No</td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
+        {% else %}
+        <!-- Show a message if there is no data (e.g. no search results) -->
+        <p>No employees found.</p>
+        {% endif %}
       </div>
     </div>
   </body>
