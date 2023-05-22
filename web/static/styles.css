@@ -1,3 +1,24 @@
+/* Define Vodafone fonts */
+@font-face {
+  font-family: "VodafoneRegular";
+  src: url("https://cdn.vodafone.co.uk/assets/fonts/vodafone-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "VodafoneRegularBold";
+  src: url("https://cdn.vodafone.co.uk/assets/fonts/vodafone-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "VodafoneRegularLight";
+  src: url("https://cdn.vodafone.co.uk/assets/fonts/vodafone-light.woff") format("woff");
+}
+
+/* Set Vodafone Regular font as default */
+* {
+  font-family: "VodafoneRegular", "Calibri";
+}
+
 /* Vodafone brand colours */
 :root {
     --vodafone-red: #e60000;
@@ -14,7 +35,6 @@
 }
 
 body {
-  font-family: "Arial", sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #333;
@@ -35,7 +55,7 @@ body {
 }
 
 .group > * {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .group > *:last-child {
@@ -49,8 +69,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Arial", sans-serif;
-  font-weight: 700;
+  font-family: "VodafoneRegularBold", sans-serif;
   color: var(--vodafone-dark-grey);
   margin-bottom: 1rem;
 }
@@ -99,7 +118,8 @@ input[type="button"] {
   display: inline-block;
   background-color: var(--vodafone-red);
   color: var(--vodafone-white);
-  font-weight: 600;
+  font-family: "VodafoneRegularBold", sans-serif;
+  font-size: 15px;
   padding: 0.5rem 1.5rem;
   border: none;
   border-radius: 4px;
@@ -123,6 +143,17 @@ input[type="button"]:disabled {
   cursor: not-allowed;
 }
 
+/* Secondary Button */
+.button-secondary {
+  background-color: var(--vodafone-white);
+  color: var(--vodafone-red);
+  border: 1px solid var(--vodafone-red);
+}
+
+.button-secondary:hover {
+  background-color: var(--vodafone-light-grey);
+}
+
 /* Inputs */
 input[type="text"],
 input[type="email"],
@@ -133,7 +164,6 @@ select {
   width: 100%;
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  line-height: 1.5;
   color: #333;
   background-color: var(--vodafone-white);
   border: 1px solid var(--vodafone-light-grey);
@@ -175,9 +205,9 @@ table {
   th {
     background-color: var(--vodafone-dark-grey);
     color: var(--vodafone-white);
-    font-weight: 600;
   }
   
+  /* Make each 2nd table row a darker gray */
   tr:nth-child(even) {
     background-color: #f8f8f8;
   }
