@@ -119,12 +119,3 @@ class Client:
                 running = False
 
         self.socket.close()  # close connection to the server
-
-
-def main():
-    client = Client()
-    client.start()
-
-
-if __name__ == '__main__':
-    main()

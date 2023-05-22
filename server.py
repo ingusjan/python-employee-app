@@ -73,12 +73,3 @@ class Server:
             thread.start()  # start the thread
         c.close()
         thread.join()
-
-
-def main():
-    server = Server()
-    server.start()
-
-
-if __name__ == '__main__':
-    main()
