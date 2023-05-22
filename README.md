@@ -11,11 +11,13 @@ Employee Tracking App written in Python &amp; Flask for BF&amp;C
 ```shell
 cd web
 pip3 install flask
+pip3 install pandas
 ```
 
 ## Running the Application
 
 ### Terminal Client and Server
+
 ```shell
 python3 run.py
 ```
