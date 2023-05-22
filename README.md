@@ -13,7 +13,12 @@ cd web
 pip3 install flask
 ```
 
-## Starting the Development Server
+## Running the Application
+
+### Terminal Client and Server
+```shell
+python3 run.py
+```
 
 ### Web-based Interface
 
