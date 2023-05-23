@@ -39,13 +39,38 @@
 
       <div style="margin-top: 1rem">
         {% if data %}
+        <p>
+          Tip: Press any of the table headings to sort them in an ascending or
+          descending order.
+        </p>
         <table>
           <thead>
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Age</th>
-              <th>Employed?</th>
+              <!-- If the table heading is pressed twice, then switch the sort by order -->
+              <th>
+                <a
+                  href="?sort_by=first_name&order={{ 'asc' if sort_by == 'first_name' and order == 'desc' else 'desc' }}"
+                  >First Name</a
+                >
+              </th>
+              <th>
+                <a
+                  href="?sort_by=last_name&order={{ 'asc' if sort_by == 'last_name' and order == 'desc' else 'desc' }}"
+                  >Last Name</a
+                >
+              </th>
+              <th>
+                <a
+                  href="?sort_by=age&order={{ 'asc' if sort_by == 'age' and order == 'desc' else 'desc' }}"
+                  >Age</a
+                >
+              </th>
+              <th>
+                <a
+                  href="?sort_by=employed&order={{ 'asc' if sort_by == 'employed' and order == 'desc' else 'desc' }}"
+                  >Employed</a
+                >
+              </th>
             </tr>
           </thead>
           <tbody>
