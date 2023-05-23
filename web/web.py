@@ -3,15 +3,15 @@ import pandas as pd
 
 app = Flask(__name__, static_folder='static')
 
-# read from the csv file
-data = pd.read_csv('../employee_data.csv')
-
-# convert the booleans to strings to allow for parsing in the html
-data['employed'] = data['employed'].map({True: 'True', False: 'False'})
-
 # create a new API route to handle the search & home
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    # read from the csv file
+    data = pd.read_csv('../employee_data.csv')
+
+    # convert the booleans to strings to allow for parsing in the html
+    data['employed'] = data['employed'].map({True: 'True', False: 'False'})
+
     # get the query from the url
     query = request.args.get('query')
     sort_by = request.args.get('sort_by', 'first_name')  # default sort column is 'first_name'
