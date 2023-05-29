@@ -207,6 +207,10 @@ table {
     color: var(--vodafone-white);
   }
   
+  th > a {
+    color: var(--vodafone-white);
+  }
+
   /* Make each 2nd table row a darker gray */
   tr:nth-child(even) {
     background-color: #f8f8f8;
